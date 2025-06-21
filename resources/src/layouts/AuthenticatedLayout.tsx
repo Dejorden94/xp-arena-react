@@ -2,16 +2,16 @@ import ApplicationLogo from '@/components/ApplicationLogo';
 import Dropdown from '@/components/Dropdown';
 import NavLink from '@/components/NavLink';
 import ResponsiveNavLink from '@/components/ResponsiveNavLink';
-import { Link, usePage } from '@inertiajs/react';
-import { PropsWithChildren, ReactNode, useState } from 'react';
+import {Link, usePage} from '@inertiajs/react';
+import {PropsWithChildren, ReactNode, useState} from 'react';
 import {User, PageProps} from "@/types";
 import UserDetailsComponent from "@/components/UserDetailsComponent";
 
 export default function Authenticated({
-    header,
-    children,
-}: PropsWithChildren<{ header?: ReactNode }>) {
-    const { auth } = usePage<PageProps>().props;
+                                          header,
+                                          children,
+                                      }: PropsWithChildren<{ header?: ReactNode }>) {
+    const {auth} = usePage<PageProps>().props;
     const user: User = usePage().props.auth.user;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -25,7 +25,7 @@ export default function Authenticated({
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800"/>
                                 </Link>
                             </div>
 
@@ -175,8 +175,12 @@ export default function Authenticated({
                     </div>
                 </header>
             )}
-            <UserDetailsComponent user={user}/>
-            <main>{children}</main>
+            <div className="flex justify-center">
+                <aside className="w-1/5 mb-auto">
+                    <UserDetailsComponent user={user}/>
+                </aside>
+                <main className="w-4/5">{children}</main>
+            </div>
         </div>
     );
 }

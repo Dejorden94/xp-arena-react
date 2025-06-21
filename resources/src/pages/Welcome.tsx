@@ -69,7 +69,7 @@ export default function Welcome({
                             </nav>
                         </header>
 
-                        <main className="mt-6">
+                        <main className="mt-6 h-dvh">
                         </main>
 
                         <footer className="py-16 text-center text-sm text-black dark:text-white/70">
