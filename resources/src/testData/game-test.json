@@ -1,0 +1,22 @@
+{
+    "testGames": [
+        {
+            "gameId": 1,
+            "gameName": "The Legend of Zelda: Breath of the Wild",
+            "gameDescription": "An open-world action-adventure game set in the kingdom of Hyrule.",
+            "gameImage": "https://via.placeholder.com/300x200?text=Zelda"
+        },
+        {
+            "gameId": 2,
+            "gameName": "Super Mario Odyssey",
+            "gameDescription": "A 3D platform game featuring Mario's cap-throwing abilities across various kingdoms.",
+            "gameImage": "https://via.placeholder.com/300x200?text=Mario"
+        },
+        {
+            "gameId": 3,
+            "gameName": "Minecraft",
+            "gameDescription": "A sandbox game where players can build, explore, and survive in procedurally generated worlds.",
+            "gameImage": "https://via.placeholder.com/300x200?text=Minecraft"
+        }
+    ]
+}
