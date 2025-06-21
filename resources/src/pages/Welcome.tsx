@@ -1,6 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
 import {PageProps} from "../types";
-import GameComponent from "../components/GameComponent/GameComponent";
 
 export default function Welcome({
     auth,
