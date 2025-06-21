@@ -5,6 +5,7 @@ import ResponsiveNavLink from '@/components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 import {User, PageProps} from "@/types";
+import UserDetailsComponent from "@/components/UserDetailsComponent";
 
 export default function Authenticated({
     header,
@@ -174,6 +175,7 @@ export default function Authenticated({
                     </div>
                 </header>
             )}
+            <UserDetailsComponent user={user}/>
             <main>{children}</main>
         </div>
     );
