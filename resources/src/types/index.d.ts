@@ -7,7 +7,8 @@ export interface User {
     level: number;
     created_at?: string;
     updated_at?: string;
-    avatar?: string;
+    profile_picture?: string;
+    profile_picture_utl?: string;
     role?: string;
 }
 
