@@ -13,7 +13,7 @@ export default function UserDetailsComponent({ user }: UserDetailsComponentProps
                 <div className="flex-shrink-0">
                     <img
                         src={profilePictureUrl}
-                        alt={user.name}
+                        alt={`${user.name}'s profile`}
                         className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
                     />
                 </div>
