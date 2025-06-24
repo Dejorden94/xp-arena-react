@@ -8,7 +8,7 @@ export interface User {
     created_at?: string;
     updated_at?: string;
     profile_picture?: string;
-    profile_picture_utl?: string;
+    profile_picture_url?: string;
     role?: string;
 }
 
