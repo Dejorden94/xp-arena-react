@@ -1,6 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
 import {PageProps} from "../types";
-import GameComponent from "../components/GameComponent/GameComponent";
 
 export default function Welcome({
     auth,
@@ -70,7 +69,7 @@ export default function Welcome({
                             </nav>
                         </header>
 
-                        <main className="mt-6">
+                        <main className="mt-6 h-dvh">
                         </main>
 
                         <footer className="py-16 text-center text-sm text-black dark:text-white/70">

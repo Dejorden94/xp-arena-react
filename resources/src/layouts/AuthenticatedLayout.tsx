@@ -2,27 +2,30 @@ import ApplicationLogo from '@/components/ApplicationLogo';
 import Dropdown from '@/components/Dropdown';
 import NavLink from '@/components/NavLink';
 import ResponsiveNavLink from '@/components/ResponsiveNavLink';
-import { Link, usePage } from '@inertiajs/react';
-import { PropsWithChildren, ReactNode, useState } from 'react';
+import {Link, usePage} from '@inertiajs/react';
+import {PropsWithChildren, ReactNode, useState} from 'react';
+import {User, PageProps} from "@/types";
+import UserDetailsComponent from "@/components/UserDetailsComponent/UserDetailsComponent";
 
 export default function Authenticated({
-    header,
-    children,
-}: PropsWithChildren<{ header?: ReactNode }>) {
-    const user = usePage().props.auth.user;
+                                          header,
+                                          children,
+                                      }: PropsWithChildren<{ header?: ReactNode }>) {
+    const {auth} = usePage<PageProps>().props;
+    const user: User = usePage().props.auth.user;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gray-100 max-w-full">
             <nav className="border-b border-gray-100 bg-white">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 justify-between">
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800"/>
                                 </Link>
                             </div>
 
@@ -172,8 +175,12 @@ export default function Authenticated({
                     </div>
                 </header>
             )}
-
-            <main>{children}</main>
+            <div className="flex justify-center content-center gap-1">
+                <aside className="w-1/5 mb-auto">
+                    <UserDetailsComponent user={user}/>
+                </aside>
+                <main className="w-4/5">{children}</main>
+            </div>
         </div>
     );
 }

@@ -2,7 +2,19 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    email_verified_at?: string;
+    email_verified_at?: string | null;
+    experience: number;
+    level: number;
+    created_at?: string;
+    updated_at?: string;
+    profile_picture?: string;
+    profile_picture_url?: string;
+    role?: string;
+}
+
+export interface AuthUser extends User {
+    permissions?: string[];
+    last_login?: string;
 }
 
 export type PageProps<
