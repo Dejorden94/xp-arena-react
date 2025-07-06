@@ -44,8 +44,6 @@ export default function ProfilePictureUpload({ user, className = '' }: ProfilePi
         });
     };
 
-    const currentProfilePictureUrl = user.profile_picture_url || '/images/default-avatar.png';
-
     return (
         <section className={className}>
             <header>
@@ -63,7 +61,7 @@ export default function ProfilePictureUpload({ user, className = '' }: ProfilePi
                     <div className="shrink-0">
                         <img
                             className="h-20 w-20 object-cover rounded-full border-2 border-gray-300"
-                            src={previewUrl || currentProfilePictureUrl}
+                            src={previewUrl || user.profile_picture_url}
                             alt="Profile preview"
                         />
                     </div>

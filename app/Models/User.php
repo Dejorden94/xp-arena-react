@@ -36,6 +36,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be appended to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_picture_url'
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -60,7 +69,7 @@ class User extends Authenticatable
         }
 
         // Return a default avatar if no profile picture is set
-        return '/images/default-avatar.png';
+        return 'storage/images/default-avatar.png';
     }
 
 

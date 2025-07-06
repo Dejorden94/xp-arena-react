@@ -17,8 +17,8 @@ class ProfilePictureController extends Controller
                 'required',
                 'image',
                 File::image()
-                ->max(10 * 1024)// 10MB max
-                ->dimensions(Rule::dimensions()->minWidth(1000)->minHeight(1000)),
+                    ->max(10 * 1024)// 10MB max
+                    ->dimensions(Rule::dimensions()->minWidth(1000)->minHeight(1000)),
             ],
         ]);
         $user = $request->user();

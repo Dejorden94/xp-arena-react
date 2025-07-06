@@ -5,16 +5,18 @@ interface UserDetailsComponentProps {
 }
 
 export default function UserDetailsComponent({ user }: UserDetailsComponentProps) {
-    const profilePictureUrl = user.profile_picture_url;
 
     return (
         <article className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
             <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
                     <img
-                        src={profilePictureUrl}
+                        src={`${user.profile_picture_url}`}
                         alt={`${user.name}'s profile`}
                         className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
+                        onError={(e) => {
+                            e.currentTarget.src = '/storage/images/default-avatar.png';
+                        }}
                     />
                 </div>
                 <div className="flex-1">

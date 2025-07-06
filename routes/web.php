@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/profile/picture', [ProfilePictureController::class, 'edit'])->name('profile.picture.edit');
+    Route::post('/profile/picture', [ProfilePictureController::class, 'update'])->name('profile.picture.update');
     Route::delete('/profile/picture', [ProfilePictureController::class, 'destroy'])->name('profile.picture.destroy');
 });
 
