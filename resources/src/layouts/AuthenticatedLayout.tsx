@@ -179,7 +179,7 @@ export default function Authenticated({
                 <aside className="w-1/5 mb-auto">
                     <UserDetailsComponent user={user}/>
                 </aside>
-                <main className="w-4/5">{children}</main>
+                <main className="mt-12 px-8 w-4/5">{children}</main>
             </div>
         </div>
     );

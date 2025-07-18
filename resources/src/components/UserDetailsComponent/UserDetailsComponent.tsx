@@ -7,7 +7,7 @@ interface UserDetailsComponentProps {
 export default function UserDetailsComponent({ user }: UserDetailsComponentProps) {
 
     return (
-        <article className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
+        <article className="bg-white ml-2 mt-12 rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200">
             <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
                     <img
