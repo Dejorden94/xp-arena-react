@@ -1,6 +1,7 @@
 //React imports
 import React from "react";
 import type {JSX} from "react";
+import { Link } from '@inertiajs/react';
 
 //Test data imports
 import gameData from "../../testData/game-test.json";
@@ -33,9 +34,12 @@ export default function GameComponent(): JSX.Element {
                             />
                         </div>
                         <section className="p-6 flex flex-col justify-center">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                            <Link
+                                href={`/games/${game.gameId}`}
+                                className="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors duration-200"
+                            >
                                 {game.gameName}
-                            </h2>
+                            </Link>
                             <p className="text-gray-600 leading-relaxed">
                                 {game.gameDescription}
                             </p>
