@@ -6,6 +6,8 @@ import {Link, usePage} from '@inertiajs/react';
 import {PropsWithChildren, ReactNode, useState} from 'react';
 import {User, PageProps} from "@/types";
 import UserDetailsComponent from "@/components/UserDetailsComponent/UserDetailsComponent";
+import MenuComponent from "@/components/MenuComponent/MenuComponent";
+import { getMainMenuItems } from "@/components/MenuComponent/menuItems";
 
 export default function Authenticated({
                                           header,
@@ -16,6 +18,9 @@ export default function Authenticated({
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+
+    const pageProps = usePage<PageProps>().props;
+    const mainMenuItems = getMainMenuItems(pageProps);
 
     return (
         <div className="min-h-screen bg-gray-100 max-w-full">
@@ -29,13 +34,9 @@ export default function Authenticated({
                                 </Link>
                             </div>
 
+                            {/* Top nav menu removed; menu is now at the bottom */}
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
-                                >
-                                    Dashboard
-                                </NavLink>
+                                {/* intentionally left empty */}
                             </div>
                         </div>
 
@@ -133,15 +134,7 @@ export default function Authenticated({
                         ' sm:hidden'
                     }
                 >
-                    <div className="space-y-1 pb-3 pt-2">
-                        <ResponsiveNavLink
-                            href={route('dashboard')}
-                            active={route().current('dashboard')}
-                        >
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
-
+                    {/* No top menu here anymore. Keep account actions if desired. */}
                     <div className="border-t border-gray-200 pb-1 pt-4">
                         <div className="px-4">
                             <div className="text-base font-medium text-gray-800">
@@ -179,8 +172,19 @@ export default function Authenticated({
                 <aside className="w-1/5 mb-auto">
                     <UserDetailsComponent user={user}/>
                 </aside>
-                <main className="mt-12 px-8 w-4/5">{children}</main>
+                <main className="mt-12 px-8 w-4/5 pb-20">{children}</main>
             </div>
+
+            <nav className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 items-center justify-around sm:hidden">
+                        <MenuComponent items={mainMenuItems} variant="mobile" />
+                    </div>
+                    <div className="hidden sm:flex h-16 items-center space-x-8">
+                        <MenuComponent items={mainMenuItems} variant="desktop" />
+                    </div>
+                </div>
+            </nav>
         </div>
     );
 }
